@@ -70,7 +70,7 @@ def trufflehog(repo_url):
         issue = json.loads(line)
 
         if issue["reason"] == "High Entropy" and all(
-            len(string_found) < 42 for string_found in issue["stringsFound"]
+            len(string_found) > 42 for string_found in issue["stringsFound"]
         ):
             continue
 
